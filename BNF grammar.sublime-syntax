@@ -1,0 +1,22 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+
+# Backus-Naur grammar rules syntax highlight ver 1.0
+# Created by: didim99 @ 2018-12-26
+name: BNF grammar
+scope: source
+contexts:
+  main:
+    - match: '(<[\w ]+>)\s+(->)\s+((<[\w ]+>)[^<>]*)*(\1)'
+      captures:
+        1: entity.name.function
+        2: comment
+        4: support.function
+        5: entity.name.tag
+    - match: '\s+->\s+'
+      scope: comment
+    - match: '^<[\w ]+>'
+      scope: entity.name.function
+    - match: '<[\w ]+>'
+      scope: support.function

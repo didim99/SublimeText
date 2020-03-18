@@ -1,0 +1,30 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+
+# Apache error log syntax highlight ver 0.2.1
+# Author: didim99 @ 2017-09-28
+
+name: Apache error log
+file_extensions:
+  - log
+scope: source
+contexts:
+  main:
+    - match: '(?<=^\[)\w+ \w+ \d+ (\d+:\d+:\d+\.\d+) \d+(?=])'
+      scope: support.constant
+      captures:
+        1: entity.name.tag
+    - match: '(?<=\[client )\d+\.\d+\.\d+\.\d+\:\d+(?=])'
+      scope: string
+    - match: 'PHP (Strict Standards|Notice)'
+      scope: custom.log.level.verbose
+    - match: 'PHP Deprecated'
+      scope: custom.log.level.debug
+    - match: 'PHP Warning'
+      scope: custom.log.level.warning
+    - match: 'PHP (Fatal|Parse) error'
+      scope: custom.log.level.error
+    - match: '(?<=on line )\d+'
+      scope: constant.numeric
+    

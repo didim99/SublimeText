@@ -1,0 +1,24 @@
+{
+	"always_show_minimap_viewport": true,
+	"color_scheme": "Packages/User/Monokai Custom.tmTheme",
+	"copy_with_empty_selection": false,
+	"default_line_ending": "unix",
+	"drag_text": false,
+	"draw_minimap_border": true,
+	"fallback_encoding": "Cyrillic (Windows 1251)",
+	"fold_buttons": false,
+	"font_size": 17,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"margin": 0,
+	"show_encoding": true,
+	"tab_size": 2,
+	"theme": "Adaptive Custom.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"ui_scale": 1.2,
+	"word_wrap": true
+}

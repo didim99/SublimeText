@@ -1,0 +1,27 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+
+# Android log syntax highlight ver 0.1
+# Author: didim99 @ 2017-09-16
+name: Android log
+file_extensions:
+  - log
+scope: source
+contexts:
+  main:
+    - match: '(^|\s)\d+-\d+-\d+( \d+:\d+:\d+(\.\d+)?)?'
+      scope: support.constant
+    - match: '(?<=\()\d{5,}(?=\))'
+      scope: constant.numeric
+    - match: '\s\[(v|V)\]\s'
+      scope: custom.log.level.verbose
+    - match: '\s\[(d|D)\]\s'
+      scope: custom.log.level.debug
+    - match: '\s\[(w|W)\]\s'
+      scope: custom.log.level.warning
+    - match: '\s\[(e|E)\]\s'
+      scope: custom.log.level.error
+    - match: '(?<=\s\[(v|d|i|w|e|V|D|I|W|E)\]\s)\w+'
+      scope: string
+    

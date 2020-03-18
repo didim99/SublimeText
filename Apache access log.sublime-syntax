@@ -1,0 +1,22 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+
+# Apache default access log syntax highlight ver 0.1
+# Author: didim99 @ 2017-09-28
+
+name: Apache access log
+scope: source
+contexts:
+  main:
+    - match: '(?<=\[)\d+/\w+/\d+:(\d+:\d+:\d+) \+\d+(?=])'
+      scope: support.constant
+      captures:
+        1: entity.name.tag
+    - match: '^\d+\.\d+\.\d+\.\d+'
+      scope: string
+    - match: '(?<=")([A-Z]+).+? (HTTP/\d\.\d)(?=")'
+      scope: string
+      captures:
+        1: keyword
+        2: support.function

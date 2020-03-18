@@ -1,0 +1,45 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+
+# Space Agency SBML syntax highlight ver 1.5.4
+# Author: fedor_dev @ 2017-07-21
+# Modified by: didim99 @ 2017-10-24
+name: SBML
+file_extensions:
+  - gsf
+  - jgsf
+  - sasbx
+scope: source
+contexts:
+  main:
+    - match: ' 01'
+      scope: default
+    - match: '//noSAcode'
+      scope: invalid
+    - match: '(?<=((sandbox,name|vicomp,label),)|(\slabel,)|(\sname,)|((ansponder id|sponder name|sandbox name|box filename) 01,)|(ansponder id|sponder name|sandbox name|box filename)).*'
+      scope: variable.parameter custom.sbml.name
+    - match: '((?<=(sandbox,uid,)|(\suid,)).*)|(?<=((dock point|cargo item) 01,)|((dock point|cargo item),))\d+'
+      scope: entity.other.attribute-name
+    - match: '(?<=(module save id|ule save id 01),)\d+'
+      scope: entity.name.function
+    - match: '(?<=(k point 01|dock point),\d,\d,\d,\d,)\d+'
+      scope: support.function
+    - match: '(?<=(ent module 01|parent module|ayload parent|oad parent 01),)\d+'
+      scope: support.function
+    - match: '^(system|sandbox|mission|partsbin|space|launch(pad)?|reenter|global)(?=,|$)'
+      scope: string custom.sbml.system
+    - match: '^mod(space|build|launch|reenter)(?=,|$)'
+      scope: keyword.control custom.sbml.modspace
+    - match: '^navicomp(?=,|$)'
+      scope: entity.other.attribute-name custom.sbml.navicomp
+    - match: 'module save id( 01)?|label'
+      scope: string
+    - match: '(?<=(go item 01|cargo item),\d,\d{3},)0\.00'
+      scope: markup.deleted custom.red
+    - match: '(?<=(go item 01|cargo item),\d,\d{3},)1\.00'
+      scope: entity.other.attribute-name custom.green
+    - match: '-?\d+(\.\d+)?'
+      scope: constant.numeric
+    - match: ','
+      scope: support.constant custom.sbml.separator
