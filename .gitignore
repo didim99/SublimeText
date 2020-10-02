@@ -2,3 +2,4 @@ Package Control*
 *.sublime-build
 *.sublime-settings
 !Preferences.sublime-settings
+!Apache error log.sublime-settings
